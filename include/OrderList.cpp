@@ -19,7 +19,7 @@ void OrderList::push(const Order &val)
   length++;
 }
 
-void OrderList::print()
+void OrderList::print() const
 {
   for (int i = 0; i < length; i++)
   {
@@ -27,7 +27,7 @@ void OrderList::print()
   }
 }
 
-bool OrderList::compare(int smaller_data_index, int bigger_data_index)
+bool OrderList::compare(int smaller_data_index, int bigger_data_index) const
 {
   return dataset[smaller_data_index] < dataset[bigger_data_index];
 }
@@ -39,7 +39,7 @@ void OrderList::swap(int first_index, int second_index)
   dataset[second_index] = temp;
 }
 
-int OrderList::get_length()
+int OrderList::get_length() const
 {
   return length;
 }
@@ -89,4 +89,32 @@ void OrderList::add_from_file(string filename, int N)
     // Read newline to dummy variable
     getline(file, line, '\n');
   }
+}
+
+void OrderList::write_to_file(string filename) const
+{
+  cout << "Starting to write orders to " << filename << endl;
+
+  ofstream file;
+  file.open(filename, ofstream::trunc | ofstream::out);
+
+  // Error handling
+  if (!file.is_open())
+  {
+    cerr << "Error: File could not be created!" << endl;
+    return;
+  }
+
+  file << "Country\tItem Type\tOrder ID\tUnits Sold\tTotal Profit\n";
+
+  // Write orders to the file
+  for (unsigned int i = 0; i < dataset.size(); i++)
+  {
+    file << dataset[i];
+  }
+
+  cout << "Writing to file process has finished." << endl;
+  file.close();
+
+  return;
 }

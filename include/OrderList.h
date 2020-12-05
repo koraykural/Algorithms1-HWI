@@ -1,5 +1,5 @@
 /**
- * 
+ * Order vector container. Inherits and implements QuickSorter.
  */
 #ifndef ORDERLIST_H
 #define ORDERLIST_H
@@ -18,15 +18,16 @@ private:
   int length;
 
   // QuickSorter virtual methods
-  bool compare(int, int);
+  bool compare(int, int) const;
   void swap(int, int);
 
 public:
   OrderList();
   void add_from_file(string, int);
+  void write_to_file(string) const;
   void push(const Order &);
-  void print();
-  int get_length();
+  void print() const;
+  int get_length() const;
 };
 
 #endif

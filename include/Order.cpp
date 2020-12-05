@@ -27,10 +27,12 @@ int Order::operator<(const Order &r) const
   }
 }
 
-std::ostream &operator<<(std::ostream &os, const Order &val)
+std::ostream &operator<<(std::ostream &os, const Order &val) const
 {
-  os << val.country;
-  os << ' ';
-  os << val.total_profit;
+  os << val.country << '\t';
+  os << val.item_type << '\t';
+  os << val.order_id << '\t';
+  os << val.units_sold << '\t';
+  os << val.total_profit << '\n';
   return os;
 }

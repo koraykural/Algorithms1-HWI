@@ -23,7 +23,7 @@ private:
 public:
   Order(string, string, unsigned int, int, double);
   int operator<(const Order &) const;
-  friend std::ostream &operator<<(std::ostream &, const Order &);
+  friend std::ostream &operator<<(std::ostream &, const Order &) const;
 };
 
 #endif

@@ -1,3 +1,8 @@
+/**
+ * Reads N orders from sales.txt file.
+ * Sorts them with quicksort algorithm.
+ * Writes them back into sorted.txt file.
+ */
 #include <time.h>
 #include <chrono>
 #include "./include/OrderList.h"
@@ -34,6 +39,8 @@ int main(int argc, char *argv[])
 
 	// Print elapsed time in microseconds
 	cout << N << " sales are sorted in " << duration.count() << " microseconds." << endl;
+
+	orders.write_to_file("sorted.txt");
 
 	return 0;
 }

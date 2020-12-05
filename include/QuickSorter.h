@@ -14,9 +14,9 @@ using namespace std;
 class QuickSorter
 {
 public:
-  virtual bool compare(int smaller_data_index, int bigger_data_index) = 0;
+  virtual bool compare(int smaller_data_index, int bigger_data_index) const = 0;
   virtual void swap(int first_index, int second_index) = 0;
-  virtual int get_length() = 0;
+  virtual int get_length() const = 0;
 
   // Sort dataset with quick sort algorithm
   void sort()
