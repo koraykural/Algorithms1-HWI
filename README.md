@@ -7,7 +7,7 @@ This program reads some sales data, orders N of them and writes them into anothe
 ## Compile
 
 ```
-g++ -std=c++14 -Wall main.cpp ./include/Order.cpp ./include/OrderList.cpp
+g++ -std=c++11 -Wall main.cpp ./include/Order.cpp ./include/OrderList.cpp
 ```
 
 ## Run
