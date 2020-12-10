@@ -44,7 +44,7 @@ private:
 
     // Index of the first data with a value greater than the pivots
     int first_high_index = lower_bound + 1;
-    while (compare(first_high_index, pivot_index) && first_high_index < higher_bound)
+    while (first_high_index <= higher_bound && compare(first_high_index, pivot_index))
     {
       first_high_index++;
     }
