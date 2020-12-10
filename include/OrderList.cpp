@@ -80,7 +80,7 @@ void OrderList::add_from_file(string filename, int N)
 
     // Read total profit
     file >> line;
-    int total_profit = stoi(line);
+    double total_profit = stod(line);
 
     // Create order and append to dataset
     Order order = Order(country, item_type, order_id, units_sold, total_profit);
@@ -93,8 +93,6 @@ void OrderList::add_from_file(string filename, int N)
 
 void OrderList::write_to_file(string filename) const
 {
-  cout << "Starting to write orders to " << filename << endl;
-
   ofstream file;
   file.open(filename, ofstream::trunc | ofstream::out);
 
@@ -113,7 +111,6 @@ void OrderList::write_to_file(string filename) const
     file << dataset[i];
   }
 
-  cout << "Writing to file process has finished." << endl;
   file.close();
 
   return;

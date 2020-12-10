@@ -3,7 +3,6 @@
  * Sorts them with quicksort algorithm.
  * Writes them back into sorted.txt file.
  */
-#include <time.h>
 #include <chrono>
 #include "./include/OrderList.h"
 
@@ -34,11 +33,11 @@ int main(int argc, char *argv[])
 	// End time
 	auto stop = chrono::high_resolution_clock::now();
 
-	// Calculate duration
-	auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+	// Calculate duration in miliseconds
+	auto duration = chrono::duration_cast<chrono::microseconds>(stop - start) / 1000;
 
-	// Print elapsed time in microseconds
-	cout << N << " sales are sorted in " << duration.count() << " microseconds." << endl;
+	// Print elapsed time in miliseconds
+	cout << N << " sales are sorted in " << duration.count() << " miliseconds." << endl;
 
 	orders.write_to_file("sorted.txt");
 

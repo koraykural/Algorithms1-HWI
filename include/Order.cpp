@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include "Order.h"
 
 Order::Order(string c, string it, unsigned int id, int us, double tp)
@@ -27,12 +28,12 @@ int Order::operator<(const Order &r) const
   }
 }
 
-std::ostream &operator<<(std::ostream &os, const Order &val) const
+std::ostream &operator<<(std::ostream &os, const Order &val)
 {
   os << val.country << '\t';
   os << val.item_type << '\t';
   os << val.order_id << '\t';
   os << val.units_sold << '\t';
-  os << val.total_profit << '\n';
+  os << std::fixed << std::setprecision(2) << val.total_profit << '\n';
   return os;
 }
