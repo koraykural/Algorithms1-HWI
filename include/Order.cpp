@@ -16,6 +16,15 @@ Order::Order(string c, string it, unsigned int id, int us, double tp)
   total_profit = tp;
 }
 
+Order::Order(const Order &r)
+{
+  country = r.country;
+  item_type = r.item_type;
+  order_id = r.order_id;
+  units_sold = r.units_sold;
+  total_profit = r.total_profit;
+}
+
 int Order::operator<(const Order &r) const
 {
   if (country != r.country)
